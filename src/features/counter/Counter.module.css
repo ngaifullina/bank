@@ -1,15 +1,17 @@
-.row {
+.column {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  margin: 60px;
 }
 
-.row > button {
+.column > button {
   margin-left: 4px;
   margin-right: 8px;
 }
 
-.row:not(:last-child) {
+.column:not(:last-child) {
   margin-bottom: 16px;
 }
 
@@ -18,7 +20,7 @@
   padding-left: 16px;
   padding-right: 16px;
   margin-top: 2px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .button {
@@ -40,9 +42,9 @@
 .textbox {
   font-size: 32px;
   padding: 2px;
-  width: 64px;
+  width: 500px;
   text-align: center;
-  margin-right: 4px;
+  margin-bottom: 30px;
 }
 
 .button:hover,
@@ -60,7 +62,7 @@
 }
 
 .asyncButton:after {
-  content: '';
+  content: "";
   background-color: rgba(112, 76, 182, 0.15);
   display: block;
   position: absolute;
