@@ -37,6 +37,7 @@
   background-color: rgba(112, 76, 182, 0.1);
   border-radius: 2px;
   transition: all 0.15s;
+  margin-bottom: 20px;
 }
 
 .textbox {

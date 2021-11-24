@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { validate, hideError, selectError } from "./counterSlice";
+import { hideMessage, selectMessage, paymentOperation } from "./counterSlice";
 import styles from "./Counter.module.css";
-
 export function Counter() {
   const dispatch = useAppDispatch();
   const [inputAmount, setInputAmount] = useState("");
-  const error = useAppSelector(selectError);
+  const message = useAppSelector(selectMessage);
 
   const handleOnClick = () => {
     const requestedAmount = Number(inputAmount);
-    dispatch(validate(requestedAmount));
+    dispatch(paymentOperation(requestedAmount));
+    setInputAmount("");
   };
 
   const handleOnChange = (value: string) => {
-    dispatch(hideError());
+    if (message) dispatch(hideMessage());
+
     setInputAmount(value);
   };
 
@@ -32,7 +33,8 @@ export function Counter() {
         <button className={styles.button} onClick={() => handleOnClick()}>
           Получить наличные
         </button>
-        {error && <div>{error}</div>}
+
+        {message && <div>{message}</div>}
       </div>
     </div>
   );
